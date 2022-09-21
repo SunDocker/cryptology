@@ -113,3 +113,238 @@
 费马小定理（欧拉定理的特例）：
 
 <img src="README.assets/image-20220920230815018.png" alt="image-20220920230815018" style="zoom:67%;" />
+
+## 2 群论基础
+
+> <img src="README.assets/image-20220921081525537.png" alt="image-20220921081525537" style="zoom:67%;" />
+
+### 2.1 群的定义
+
+#### 2.1.1 群
+
+<img src="README.assets/image-20220921081608682.png" alt="image-20220921081608682" style="zoom:67%;" />
+
+<img src="README.assets/image-20220921081633562.png" alt="image-20220921081633562" style="zoom:67%;" />
+
+#### 2.1.2 Abel群
+
+<img src="README.assets/image-20220921081718674.png" alt="image-20220921081718674" style="zoom:67%;" />
+
+- 乘法称为**加法**，群称为**加群**
+- 单位元称为**零元**，记作**0**
+- 逆元称为**负元**，写成**-a**
+
+> <img src="README.assets/image-20220921082057161.png" alt="image-20220921082057161" style="zoom:67%;" />
+
+#### 2.1.3 无限群和有限群
+
+<img src="README.assets/image-20220921082220754.png" alt="image-20220921082220754" style="zoom:67%;" />
+
+> 典型的有限群：
+>
+> <img src="README.assets/image-20220921082413589.png" alt="image-20220921082413589" style="zoom:67%;" />
+>
+> > n次单位根：$x^n=1$
+>
+> <img src="README.assets/image-20220921082542848.png" alt="image-20220921082542848" style="zoom:67%;" />
+
+### 2.2 群元素的性质
+
+#### 2.2.1 群元素的阶
+
+<img src="README.assets/image-20220921082658192.png" alt="image-20220921082658192" style="zoom:67%;" />
+
+<img src="README.assets/image-20220921082716340.png" alt="image-20220921082716340" style="zoom:67%;" />
+
+> <img src="README.assets/image-20220921082729839.png" alt="image-20220921082729839" style="zoom:67%;" />
+>
+> <img src="README.assets/image-20220921082750901.png" alt="image-20220921082750901" style="zoom:67%;" />
+>
+> <img src="README.assets/image-20220921082852341.png" alt="image-20220921082852341" style="zoom:67%;" />
+
+#### 2.2.2 阶的定理
+
+<img src="README.assets/image-20220921082920643.png" alt="image-20220921082920643" style="zoom:67%;" />
+
+<img src="README.assets/image-20220921083029056.png" alt="image-20220921083029056" style="zoom:67%;" />
+
+<img src="README.assets/image-20220921083243507.png" alt="image-20220921083243507" style="zoom:67%;" />
+
+<img src="README.assets/image-20220921083312986.png" alt="image-20220921083312986" style="zoom:67%;" />
+
+> 重要推论：设a是群G的元素，如果a的阶等于n，那么a的k次方的阶为n 当且仅当 (k, n)=1
+
+### 2.3 循环群
+
+#### 2.3.1 循环群的定义
+
+<img src="README.assets/image-20220921083743931.png" alt="image-20220921083743931" style="zoom:67%;" />
+
+> <img src="README.assets/image-20220921083822398.png" alt="image-20220921083822398" style="zoom:67%;" />
+>
+> <img src="README.assets/image-20220921083846318.png" alt="image-20220921083846318" style="zoom:67%;" />
+>
+> 这两个例子就是循环群的典型代表
+
+可以看出，对于循环群来说，**生成元**是核心
+
+#### 2.3.2 循环群的生成元
+
+<img src="README.assets/image-20220921084059864.png" alt="image-20220921084059864" style="zoom:67%;" />
+
+<img src="README.assets/image-20220921084145551.png" alt="image-20220921084145551" style="zoom:67%;" />
+
+> <img src="README.assets/image-20220921084243016.png" alt="image-20220921084243016" style="zoom:67%;" />
+
+### 2.4 子群
+
+#### 2.4.1 子群的定义
+
+<img src="README.assets/image-20220921083650500.png" alt="image-20220921083650500" style="zoom:67%;" />
+
+#### 2.4.2 子群的陪集
+
+<img src="README.assets/image-20220921084511690.png" alt="image-20220921084511690" style="zoom:67%;" />
+
+> <img src="README.assets/image-20220921084737443.png" alt="image-20220921084737443" style="zoom:67%;" />
+
+重要性质：
+
+<img src="README.assets/image-20220921084821629.png" alt="image-20220921084821629" style="zoom:67%;" />
+
+#### 2.4.3 拉格朗日定理
+
+<img src="README.assets/image-20220921084933262.png" alt="image-20220921084933262" style="zoom:67%;" />
+
+<img src="README.assets/image-20220921085023323.png" alt="image-20220921085023323" style="zoom:67%;" />
+
+> <img src="README.assets/image-20220921085150078.png" alt="image-20220921085150078" style="zoom:67%;" />
+>
+> <img src="README.assets/image-20220921085348121.png" alt="image-20220921085348121" style="zoom:67%;" />
+>
+> <img src="README.assets/image-20220921085424505.png" alt="image-20220921085424505" style="zoom:67%;" />
+
+重要推论：
+
+<img src="README.assets/image-20220921085557603.png" alt="image-20220921085557603" style="zoom:67%;" />
+
+<img src="README.assets/image-20220921085720743.png" alt="image-20220921085720743" style="zoom:67%;" />
+
+## 3 环论基础
+
+> <img src="README.assets/image-20220921093430104.png" alt="image-20220921093430104" style="zoom:67%;" />
+
+### 3.1 环的定义
+
+#### 3.1.1 环
+
+<img src="README.assets/image-20220921093654302.png" alt="image-20220921093654302" style="zoom:67%;" />
+
+<img src="README.assets/image-20220921093709303.png" alt="image-20220921093709303" style="zoom:67%;" />
+
+#### 3.1.2 可换环和不可换环
+
+<img src="README.assets/image-20220921093934940.png" alt="image-20220921093934940" style="zoom:67%;" />
+
+> <img src="README.assets/image-20220921094249484.png" alt="image-20220921094249484" style="zoom:67%;" />
+>
+> > <img src="README.assets/image-20220921094256773.png" alt="image-20220921094256773" style="zoom:67%;" />
+>
+> <img src="README.assets/image-20220921094355613.png" alt="image-20220921094355613" style="zoom:67%;" />
+>
+> > <img src="README.assets/image-20220921094420558.png" alt="image-20220921094420558" style="zoom:67%;" />
+
+#### 3.1.3 有限环和无限环
+
+<img src="README.assets/image-20220921094052418.png" alt="image-20220921094052418" style="zoom:67%;" />
+
+#### 3.1.4 含幺环
+
+<img src="README.assets/image-20220921094538499.png" alt="image-20220921094538499" style="zoom:67%;" />
+
+> <img src="README.assets/image-20220921094635960.png" alt="image-20220921094635960" style="zoom:60%;" />
+
+<img src="README.assets/image-20220921094658785.png" alt="image-20220921094658785" style="zoom:67%;" />
+
+### 3.2 环的零因子
+
+<img src="README.assets/image-20220921094859471.png" alt="image-20220921094859471" style="zoom:67%;" />
+
+重点：零因子一定不是可逆元，也就是说，**<u>所有可逆元都不是零因子</u>**
+
+> <img src="README.assets/image-20220921094925913.png" alt="image-20220921094925913" style="zoom:67%;" />
+>
+> <img src="README.assets/image-20220921094934492.png" alt="image-20220921094934492" style="zoom:67%;" />
+
+### 3.3 三类特殊的环
+
+#### 3.3.1 整环
+
+<img src="README.assets/image-20220921095058075.png" alt="image-20220921095058075" style="zoom:80%;" />
+
+> <img src="README.assets/image-20220921095106943.png" alt="image-20220921095106943" style="zoom:80%;" />
+
+#### 3.3.2 除环、域
+
+<img src="README.assets/image-20220921095250499.png" alt="image-20220921095250499" style="zoom:67%;" />
+
+> 整环：单位元、无零因子、交换
+>
+> 除环：单位元、逆元（能推出无零因子）、元素个数大于1
+>
+> <img src="README.assets/image-20220921095826025.png" alt="image-20220921095826025" style="zoom:67%;" />
+
+### 3.4 剩余类环
+
+<img src="README.assets/image-20220921100002548.png" alt="image-20220921100002548" style="zoom:67%;" />
+
+理解剩余类环中的元素时，重点看其**完全剩余系**即可
+
+<img src="README.assets/image-20220921100141020.png" alt="image-20220921100141020" style="zoom:67%;" />
+
+> 重要结论：
+>
+> <img src="README.assets/image-20220921100204322.png" alt="image-20220921100204322" style="zoom:67%;" />
+
+<img src="README.assets/image-20220921100613436.png" alt="image-20220921100613436" style="zoom:70%;" />
+
+> 这个有限域很重要
+
+> <img src="README.assets/image-20220921100818486.png" alt="image-20220921100818486" style="zoom:67%;" />
+>
+> <img src="README.assets/image-20220921100914992.png" alt="image-20220921100914992" style="zoom:67%;" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
