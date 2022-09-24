@@ -286,5 +286,166 @@ PC-1表的形成机制：先一列一列从右往左写，然后去掉最后一�
 
     <img src="README.assets/image-20220924145934502.png" alt="image-20220924145934502" style="zoom:50%;" />
 
+## 3 AES
+
+### 3.1 概述
+
+#### 3.1.1 背景
+
+> DES的最大弱点就是密钥长度太短，只有56bit
+>
+> 三重DES：
+>
+> <img src="README.assets/image-20220924161412067.png" alt="image-20220924161412067" style="zoom:50%;" />
+>
+> 密钥长度变长了，但加密时间增加了
+
+<img src="README.assets/image-20220924161448251.png" alt="image-20220924161448251" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924161522177.png" alt="image-20220924161522177" style="zoom:67%;" />
+
+> <img src="README.assets/image-20220924161612235.png" alt="image-20220924161612235" style="zoom:50%;" />
+>
+> <img src="README.assets/image-20220924161714840.png" alt="image-20220924161714840" style="zoom:50%;" />
+
+#### 3.1.2 基本原理
+
+<img src="README.assets/image-20220924161920877.png" alt="image-20220924161920877" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924162320562.png" alt="image-20220924162320562" style="zoom:67%;" />
+
+> 与Fesitle相比，SPN结构数据扩散更快
+
+### 3.2 加密流程
+
+<img src="README.assets/image-20220924162109342.png" alt="image-20220924162109342" style="zoom:50%;" />
+
+> 第10轮省略列混合，为了使加密和解密过程更加接近
+
+<img src="README.assets/image-20220924162536129.png" alt="image-20220924162536129" style="zoom:67%;" />
+
+状态：
+
+<img src="README.assets/image-20220924162657072.png" alt="image-20220924162657072" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924162917338.png" alt="image-20220924162917338" style="zoom:50%;" />
+
+#### 3.2.1 数学基础
+
+##### 3.2.1.1 字节的表示和运算
+
+<u>构造</u>：
+
+<img src="README.assets/image-20220924163122951.png" alt="image-20220924163122951" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924163219715.png" alt="image-20220924163219715" style="zoom:50%;" />
+
+> b~i~为0或1
+
+<img src="README.assets/image-20220924164020080.png" alt="image-20220924164020080" style="zoom:50%;" />
+
+> 这个构造方法就是之前讲过的，用已知有限域上m次素多项式构造出来的
+
+---
+
+<u>加法与乘法</u>：
+
+<img src="README.assets/image-20220924164126174.png" alt="image-20220924164126174" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924164502062.png" alt="image-20220924164502062" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924164810418.png" alt="image-20220924164810418" style="zoom:50%;" />
+
+> 注意这里需要使用Euclid算法求逆元，AES中会用到。具体怎么算我也不知道，之后有机会再学吧
+
+##### 3.2.1.2 字的表示与运算
+
+<img src="README.assets/image-20220924164957381.png" alt="image-20220924164957381" style="zoom:67%;" />
+
+<img src="README.assets/image-20220924165038420.png" alt="image-20220924165038420" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924165333231.png" alt="image-20220924165333231" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924165518203.png" alt="image-20220924165518203" style="zoom:50%;" />
+
+> 求系数的话就是原系数下标之和模4等于对应幂数的：
+>
+> <img src="README.assets/image-20220924165836773.png" alt="image-20220924165836773" style="zoom:50%;" />
+>
+> 这里固定矩阵的思想下面AES中会再用一次；
+>
+> 这里的乘法和加法还需要使用**字节的加法和乘法规则**
+
+<img src="README.assets/image-20220924165938144.png" alt="image-20220924165938144" style="zoom:50%;" />
+
+#### 3.2.2 单轮加密变换
+
+<img src="README.assets/image-20220924170224023.png" alt="image-20220924170224023" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924170249819.png" alt="image-20220924170249819" style="zoom:67%;" />
+
+##### 3.2.2.1 字节代替
+
+<img src="README.assets/image-20220924170338963.png" alt="image-20220924170338963" style="zoom:50%;" />
+
+> <img src="README.assets/image-20220924170420420.png" alt="image-20220924170420420" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924170502352.png" alt="image-20220924170502352" style="zoom:50%;" />
+
+S盒的代数规律：
+
+<img src="README.assets/image-20220924171012563.png" alt="image-20220924171012563" style="zoom:50%;" />
+
+- 非线性的特质由第一步运算体现
+- 第二步在一定程序上起到扩散作用
+
+> 矩阵每列都有5个1说明，改变输入中的1个bit，会影响输出的5个bit：
+>
+> <img src="README.assets/image-20220924171052150.png" alt="image-20220924171052150" style="zoom:50%;" />
+>
+> 矩阵每行都有5个1说明，每bit输出和输入中的5个bit相关：
+>
+> <img src="README.assets/image-20220924171101499.png" alt="image-20220924171101499" style="zoom:50%;" />
+
+> 这种计算方法和刚才给出的表是一致的：
+>
+> <img src="README.assets/image-20220924171933624.png" alt="image-20220924171933624" style="zoom:50%;" />
+>
+> <img src="README.assets/image-20220924172002284.png" alt="image-20220924172002284" style="zoom:50%;" />
+
+##### 3.2.2.2 行移位
+
+<img src="README.assets/image-20220924172115124.png" alt="image-20220924172115124" style="zoom:50%;" />
+
+> 但这样做完之后同一行的还是在同一行，需要进一步分散
+
+##### 3.2.2.3 列混合
+
+<img src="README.assets/image-20220924172232659.png" alt="image-20220924172232659" style="zoom:50%;" />
+
+- 这就是直接对一个**字**进行运算了
+
+<img src="README.assets/image-20220924172351262.png" alt="image-20220924172351262" style="zoom:50%;" />
+
+> <img src="README.assets/image-20220924172501697.png" alt="image-20220924172501697" style="zoom:50%;" />
+
+##### 3.2.2.4 轮密钥加
+
+<img src="README.assets/image-20220924172554180.png" alt="image-20220924172554180" style="zoom:67%;" />
+
+### 3.3 密钥扩展方案
+
+
+
+
+
+
+
+### 3.4 解密流程
+
+
+
+
+
 
 
