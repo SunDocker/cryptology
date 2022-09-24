@@ -228,9 +228,63 @@ PC-1表的形成机制：先一列一列从右往左写，然后去掉最后一�
 
 <img src="README.assets/image-20220924144040077.png" alt="image-20220924144040077" style="zoom:67%;" />
 
-> 一个分组的DES加密示例：
->
-> 
+### 2.6 实例 
+
+一个分组的DES加密示例：
+
+<img src="README.assets/image-20220924144548616.png" alt="image-20220924144548616" style="zoom:67%;" />
+
+ <img src="README.assets/image-20220924144613754.png" alt="image-20220924144613754" style="zoom:67%;" />
+
+ 1. 密钥扩展方案
+
+    <img src="README.assets/image-20220924145712511.png" alt="image-20220924145712511" style="zoom:50%;" />
+
+    1. 置换选择PC-1
+
+       <img src="README.assets/image-20220924145809391.png" alt="image-20220924145809391" style="zoom:50%;" />
+
+    2. 16轮迭代
+
+       <img src="README.assets/image-20220924145904794.png" alt="image-20220924145904794" style="zoom:50%;" />
+
+       <img src="README.assets/image-20220924145921337.png" alt="image-20220924145921337" style="zoom:67%;" />
+
+ 2. 加密流程
+
+    1. 初始置换IP
+
+       <img src="README.assets/image-20220924144804034.png" alt="image-20220924144804034" style="zoom:50%;" />
+
+    2. 16轮迭代
+
+       <img src="README.assets/image-20220924145033469.png" alt="image-20220924145033469" style="zoom:50%;" />
+
+       1. 扩展置换E
+
+          <img src="README.assets/image-20220924145241268.png" alt="image-20220924145241268" style="zoom:50%;" />
+
+       2. 轮密钥加
+
+          <img src="README.assets/image-20220924145258458.png" alt="image-20220924145258458" style="zoom:50%;" />
+
+       3. S盒：混淆
+
+          <img src="README.assets/image-20220924145428906.png" alt="image-20220924145428906" style="zoom:50%;" />
+
+       4. 置换P：扩展
+
+          <img src="README.assets/image-20220924145510018.png" alt="image-20220924145510018" style="zoom:50%;" />
+
+       <img src="README.assets/image-20220924145549034.png" alt="image-20220924145549034" style="zoom:50%;" />
+
+       <img src="README.assets/image-20220924145600447.png" alt="image-20220924145600447" style="zoom:50%;" />
+
+    3. 初始逆置换IP^-1^
+
+       <img src="README.assets/image-20220924145655170.png" alt="image-20220924145655170" style="zoom:50%;" />
+
+    <img src="README.assets/image-20220924145934502.png" alt="image-20220924145934502" style="zoom:50%;" />
 
 
 
