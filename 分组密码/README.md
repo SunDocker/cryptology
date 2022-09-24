@@ -320,6 +320,8 @@ PC-1表的形成机制：先一列一列从右往左写，然后去掉最后一�
 
 <img src="README.assets/image-20220924162109342.png" alt="image-20220924162109342" style="zoom:50%;" />
 
+> 这里首先有一个**和白化密钥异或**的过程；
+>
 > 第10轮省略列混合，为了使加密和解密过程更加接近
 
 <img src="README.assets/image-20220924162536129.png" alt="image-20220924162536129" style="zoom:67%;" />
@@ -435,13 +437,75 @@ S盒的代数规律：
 
 ### 3.3 密钥扩展方案
 
+> <img src="README.assets/image-20220924172812302.png" alt="image-20220924172812302" style="zoom:50%;" />
 
+<img src="README.assets/image-20220924172843692.png" alt="image-20220924172843692" style="zoom:50%;" />
 
+#### 3.3.1 第一阶段
 
+---
 
+<img src="README.assets/image-20220924173050406.png" alt="image-20220924173050406" style="zoom:67%;" />
 
+存储方式：
+
+<img src="README.assets/image-20220924172939794.png" alt="image-20220924172939794" style="zoom:50%;" />
+
+> 用一个数组存储扩展密钥的每一列，每个元素是一个字
+
+生成方法：
+
+<img src="README.assets/image-20220924173139677.png" alt="image-20220924173139677" style="zoom:50%;" />
+
+- 第一种情况
+
+  <img src="README.assets/image-20220924173518590.png" alt="image-20220924173518590" style="zoom:50%;" />
+
+  > <img src="README.assets/image-20220924173451002.png" alt="image-20220924173451002" style="zoom:60%;" />
+
+- 第二种情况：
+
+  <img src="README.assets/image-20220924173627152.png" alt="image-20220924173627152" style="zoom:50%;" />
+
+#### 3.3.2 第二阶段
+
+---
+
+<img src="README.assets/image-20220924173730937.png" alt="image-20220924173730937" style="zoom:67%;" />
 
 ### 3.4 解密流程
+
+---
+
+AES加解密流程不同实现时需要加密器和解密器，但它们的结构相同
+
+<img src="README.assets/image-20220924174352634.png" alt="image-20220924174352634" style="zoom:50%;" />
+
+#### 3.4.1 逆字节代替
+
+---
+
+
+
+#### 3.4.2 逆行移位
+
+---
+
+
+
+#### 3.4.3 逆列混合
+
+---
+
+
+
+#### 3.4.4 逆 
+
+
+
+
+
+
 
 
 
