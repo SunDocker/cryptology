@@ -485,31 +485,246 @@ AES加解密流程不同实现时需要加密器和解密器，但它们的结�
 
 ---
 
+<img src="README.assets/image-20220924191354357.png" alt="image-20220924191354357" style="zoom:50%;" />
 
+> <img src="README.assets/image-20220924191414552.png" alt="image-20220924191414552" style="zoom:50%;" />
+
+数学描述：
+
+<img src="README.assets/image-20220924191438006.png" alt="image-20220924191438006" style="zoom:50%;" />
 
 #### 3.4.2 逆行移位
 
 ---
 
-
+<img src="README.assets/image-20220924191507634.png" alt="image-20220924191507634" style="zoom:67%;" />
 
 #### 3.4.3 逆列混合
 
 ---
 
+<img src="README.assets/image-20220924191549002.png" alt="image-20220924191549002" style="zoom:50%;" />
 
+#### 3.4.4 逆轮密钥加
 
-#### 3.4.4 逆 
+---
 
+<img src="README.assets/image-20220924191615294.png" alt="image-20220924191615294" style="zoom:50%;" />
 
+<img src="README.assets/image-20220924191815445.png" alt="image-20220924191815445" style="zoom:50%;" />
 
+### 3.5 安全性
 
+<img src="README.assets/image-20220924191944135.png" alt="image-20220924191944135" style="zoom:67%;" />
 
+> 其实最有效的方法就是穷举，但以目前计算机的能力，穷举要上亿年，所以目前AES是安全的
 
+### 3.6 实例
 
+<img src="README.assets/image-20220924192103414.png" alt="image-20220924192103414" style="zoom:50%;" />
 
+<img src="README.assets/image-20220924192149655.png" alt="image-20220924192149655" style="zoom:50%;" />
 
+#### 3.6.1 加密流程
 
+---
+
+<img src="README.assets/image-20220924192243137.png" alt="image-20220924192243137" style="zoom:50%;" />
+
+##### 3.6.1.1 字节代替
+
+> SubBytes
+
+<img src="README.assets/image-20220924192332402.png" alt="image-20220924192332402" style="zoom:67%;" />
+
+<img src="README.assets/image-20220924192347828.png" alt="image-20220924192347828" style="zoom:67%;" />
+
+##### 3.6.1.2 行移位
+
+> ShiftRows
+
+<img src="README.assets/image-20220924192456477.png" alt="image-20220924192456477" style="zoom:67%;" />
+
+##### 3.6.1.3 列混合
+
+> MixColumns
+
+<img src="README.assets/image-20220924192606553.png" alt="image-20220924192606553" style="zoom:67%;" />
+
+<img src="README.assets/image-20220924192616498.png" alt="image-20220924192616498" style="zoom:67%;" />
+
+##### 3.6.1.4 轮密钥加
+
+> AddRoundKey
+
+<img src="README.assets/image-20220924192727945.png" alt="image-20220924192727945" style="zoom:67%;" />
+
+> <img src="README.assets/image-20220924192819277.png" alt="image-20220924192819277" style="zoom:60%;" />
+
+#### 3.6.2 密钥扩展方案
+
+<img src="README.assets/image-20220924192836246.png" alt="image-20220924192836246" style="zoom:50%;" />
+
+##### 3.6.2.1 密钥扩展
+
+<img src="README.assets/image-20220924193034418.png" alt="image-20220924193034418" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924193113586.png" alt="image-20220924193113586" style="zoom:50%;" />
+
+> <img src="README.assets/image-20220924193151525.png" alt="image-20220924193151525" style="zoom:50%;" />
+>
+> <img src="README.assets/image-20220924193207575.png" alt="image-20220924193207575" style="zoom:50%;" />
+
+##### 3.6.2.2 轮密钥选取
+
+<img src="README.assets/image-20220924193302578.png" alt="image-20220924193302578" style="zoom:67%;" />
+
+<img src="README.assets/image-20220924193313418.png" alt="image-20220924193313418" style="zoom:67%;" />
+
+## 4 分组密码的工作模式
+
+---
+
+<img src="README.assets/image-20220924193358587.png" alt="image-20220924193358587" style="zoom:67%;" />
+
+> <img src="README.assets/image-20220924193418589.png" alt="image-20220924193418589" style="zoom:67%;" />
+>
+> 但实际应用中，要加密的明文长度是不确定的 
+
+<img src="README.assets/image-20220924193447551.png" alt="image-20220924193447551" style="zoom:67%;" />
+
+### 4.1 电码本(ECB)
+
+---
+
+<img src="README.assets/image-20220924193528664.png" alt="image-20220924193528664" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924193536665.png" alt="image-20220924193536665" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924193547411.png" alt="image-20220924193547411" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924193601203.png" alt="image-20220924193601203" style="zoom:50%;" />
+
+> <img src="README.assets/image-20220924193629313.png" alt="image-20220924193629313" style="zoom:50%;" />
+
+> <img src="README.assets/image-20220924193745826.png" alt="image-20220924193745826" style="zoom:50%;" />
+>
+> <img src="README.assets/image-20220924193808014.png" alt="image-20220924193808014" style="zoom:50%;" />
+>
+> <img src="README.assets/image-20220924193755849.png" alt="image-20220924193755849" style="zoom:50%;" />
+>
+> <img src="README.assets/image-20220924193827476.png" alt="image-20220924193827476" style="zoom:50%;" />
+
+### 4.2 密码分组链接(CBC)
+
+<img src="README.assets/image-20220924194612742.png" alt="image-20220924194612742" style="zoom:67%;" />
+
+<img src="README.assets/image-20220924195016677.png" alt="image-20220924195016677" style="zoom:60%;" />
+
+> 这个后面也要补齐
+
+- CBC模式的加密：将当前明文分组与前一个密文分组进行异或后在进行加密操作。第一个明文分组之前没有密文分组，需要将第一个明文分组与一个初始向量IV进行异或。
+- CBC模式的解密：将当前密文分组解密操作，然后与前一个密文分组进行异或。
+- CBC模式中的IV（初始向量）：
+  - 随机数。每次加密前随机产生，使得相同的明文，加密后得到不同的密文。
+  - 为了解密能够顺利进行，发送方和接受方都应该知道IV。
+  - IV 无须保密，可以以明文形式传输
+- CBC模式的特点：
+  - 明文块的统计特性得到了隐蔽。由于在密文CBC模式中，各密文块不仅与当前明文块有关，而且还与以前的明文块及初始化向量有关，从而使明文的统计规律在密文中得到了较好的隐蔽。
+  - 具有有限的(两步)错误传播特性。一个密文块的错误将导致两个密文块不能正确解密
+  - 具有自同步功能。密文出现丢块和错块不影响后续密文块的脱密**.** 若从第**t**块起密文块正确**,**则第**t+1**个明文块就能正确求出。
+- CBC模式的典型应用：
+  - 数据加密;
+  - 完整性认证和身份认证;
+
+### 4.3 密码反馈(CFB)
+
+<img src="README.assets/image-20220924195105174.png" alt="image-20220924195105174" style="zoom:67%;" />
+
+<img src="README.assets/image-20220924195406006.png" alt="image-20220924195406006" style="zoom:60%;" />
+
+优点： 
+
+- **1.**隐藏明文的数据格式。 
+- **2.**每一次可以加密**j**比特明文块，因此灵活适应各种数据格式 的需求。比如，数据库加密要求加密时不能改变明文的字节长度，这时就要以明文字节长度为单位进行加密。 
+
+缺点： 
+
+- **1.**加解密效率低：一次只能完成 **j**个比特明密文数据的加解密。 
+- **2.**会造成错误传播：因为**CFB**是自同步序列密码：密钥序列依赖于密文。所以，密文某个比特错误，解密后不仅可以导致在明文相同位置产生一个单比特错误；同时，只要这一密文错误还在移位寄存器中，就会造成相应密钥序列和明文序列的错误。 
+
+应用：数据库加密等对数据格式有特殊要求的应用环境。 
+
+### 4.4 输出反馈(OFB)
+
+<img src="README.assets/image-20220924195501421.png" alt="image-20220924195501421" style="zoom:67%;" />
+
+<img src="README.assets/image-20220924195524001.png" alt="image-20220924195524001" style="zoom:67%;" />
+
+优点： 
+
+- １**.**不具有错误传播特性。因为**OFB**是同步 序列密码：密钥序列的产生独立于密文，所以， 密文某个比特错误，解密后仅会导致在明文相同 位置产生一个单比特错误。     
+- ２**.**隐蔽明文的数据格式 。 
+
+缺点：加解密效率低。 
+
+应用：图像加密、语音加密。 
+
+### 4.5 计数器(CTR)
+
+<img src="README.assets/image-20220924195745498.png" alt="image-20220924195745498" style="zoom:50%;" />
+
+优点： 
+
+​    1.可并行 执行：因为计数器模式各块儿可单独处理。 
+
+​    2.可预处理：明文不参与密钥产生。 
+
+应用：随机存取数据的加密。 
+
+## 5 6轮AES-128的不可能差分攻击
+
+<img src="README.assets/image-20220924195858550.png" alt="image-20220924195858550" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924195920879.png" alt="image-20220924195920879" style="zoom:67%;" />
+
+### 5.1 6轮AES-128的加密流程
+
+<img src="README.assets/image-20220924200019228.png" alt="image-20220924200019228" style="zoom:67%;" />
+
+> 下面将AES-128简称为AES
+
+### 5.2 不可能差分攻击的思想
+
+<img src="README.assets/image-20220924200100407.png" alt="image-20220924200100407" style="zoom:67%;" />
+
+<img src="README.assets/image-20220924200136291.png" alt="image-20220924200136291" style="zoom:67%;" />
+
+<img src="README.assets/image-20220924200144730.png" alt="image-20220924200144730" style="zoom:67%;" />
+
+### 5.3 构造4轮AES不可能差分特征
+
+<img src="README.assets/image-20220924200326652.png" alt="image-20220924200326652" style="zoom:50%;" />
+
+> 右边给的是一个反证法
+
+### 5.4 6轮AES的密钥恢复
+
+先在4轮的基础上，前后分别扩展出一轮，密钥恢复就在第1轮和第6轮中进行
+
+<img src="README.assets/image-20220924201024942.png" alt="image-20220924201024942" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924201144515.png" alt="image-20220924201144515" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924201229986.png" alt="image-20220924201229986" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924201259921.png" alt="image-20220924201259921" style="zoom:50%;" />
+
+<img src="README.assets/image-20220924201314131.png" alt="image-20220924201314131" style="zoom:50%;" />
+
+> 结论 ： 6轮AES-128理论上被攻破
+> 数据复杂度：295.5个选择明文
+> 时间复杂度： 2123.9个6轮AES-128的加密
 
 
 
