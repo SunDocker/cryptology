@@ -461,6 +461,8 @@ S盒的代数规律：
 
   <img src="README.assets/image-20220924173518590.png" alt="image-20220924173518590" style="zoom:50%;" />
 
+  > 那个g(w[i-1])后边的i-4要改成i-1
+
   > <img src="README.assets/image-20220924173451002.png" alt="image-20220924173451002" style="zoom:60%;" />
 
 - 第二种情况：
