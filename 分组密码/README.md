@@ -342,7 +342,7 @@ PC-1表的形成机制：先一列一列从右往左写，然后去掉最后一�
 
 <img src="README.assets/image-20220924163219715.png" alt="image-20220924163219715" style="zoom:50%;" />
 
-> b~i~为0或1
+> b~i~为w0或1
 
 <img src="README.assets/image-20220924164020080.png" alt="image-20220924164020080" style="zoom:50%;" />
 
