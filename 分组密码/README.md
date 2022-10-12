@@ -342,7 +342,7 @@ PC-1表的形成机制：先一列一列从右往左写，然后去掉最后一�
 
 <img src="README.assets/image-20220924163219715.png" alt="image-20220924163219715" style="zoom:50%;" />
 
-> b~i~为0或1
+> b~i~为w0或1
 
 <img src="README.assets/image-20220924164020080.png" alt="image-20220924164020080" style="zoom:50%;" />
 
@@ -350,11 +350,17 @@ PC-1表的形成机制：先一列一列从右往左写，然后去掉最后一�
 
 ---
 
-<u>加法与乘法</u>：
+<u>加法</u>：
 
 <img src="README.assets/image-20220924164126174.png" alt="image-20220924164126174" style="zoom:50%;" />
 
+> 加法就是**两个字节异或**
+
+<u>乘法</u>：我把它简记为**乘模**
+
 <img src="README.assets/image-20220924164502062.png" alt="image-20220924164502062" style="zoom:50%;" />
+
+<u>单位元和逆元</u>：
 
 <img src="README.assets/image-20220924164810418.png" alt="image-20220924164810418" style="zoom:50%;" />
 
@@ -364,19 +370,27 @@ PC-1表的形成机制：先一列一列从右往左写，然后去掉最后一�
 
 <img src="README.assets/image-20220924164957381.png" alt="image-20220924164957381" style="zoom:67%;" />
 
+<u>加法</u>：
+
 <img src="README.assets/image-20220924165038420.png" alt="image-20220924165038420" style="zoom:50%;" />
+
+<u>乘法</u>：
 
 <img src="README.assets/image-20220924165333231.png" alt="image-20220924165333231" style="zoom:50%;" />
 
 <img src="README.assets/image-20220924165518203.png" alt="image-20220924165518203" style="zoom:50%;" />
 
-> 求系数的话就是原系数下标之和模4等于对应幂数的：
+> 直接从上面的方法中整理出系数的表达式：
+>
+> 原所有系数（所有$a_i、c_i$）下标之和模4等于对应幂数（幂数就是$b_i$中的$i$）的
 >
 > <img src="README.assets/image-20220924165836773.png" alt="image-20220924165836773" style="zoom:50%;" />
 >
 > 这里固定矩阵的思想下面AES中会再用一次；
 >
-> 这里的乘法和加法还需要使用**字节的加法和乘法规则**
+> 这里的乘法和加法还需要使用**字节的加法和乘法规则**，就是**异或**和**乘模**；
+>
+> 当然求出系数之后，还要模一下字运算规定的不可约多项式，所以我把这种乘法称为**小乘模异或大乘模**
 
 <img src="README.assets/image-20220924165938144.png" alt="image-20220924165938144" style="zoom:50%;" />
 
@@ -428,6 +442,8 @@ S盒的代数规律：
 - 这就是直接对一个**字**进行运算了
 
 <img src="README.assets/image-20220924172351262.png" alt="image-20220924172351262" style="zoom:50%;" />
+
+> 之前讲过字的乘法，我叫它为**小乘模异或大乘模**，但这里不需要**大乘模**了，直接进行多次**小乘模异或**就可以得到所有的$b_i$了
 
 > <img src="README.assets/image-20220924172501697.png" alt="image-20220924172501697" style="zoom:50%;" />
 
