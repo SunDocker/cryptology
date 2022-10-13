@@ -89,6 +89,9 @@
 
 <img src="README.assets/image-20221012221932838.png" alt="image-20221012221932838" style="zoom:67%;" />
 
+- 规定好级数大小
+- 确定移位方向和输出的级数
+
 #### 3.3 LFSR举例
 
 举例：
@@ -144,9 +147,28 @@ LFSR的状态周期小于等于$2^L-1$
 
 <img src="README.assets/image-20221012225153523.png" alt="image-20221012225153523" style="zoom:67%;" />
 
+### 2 算法应用举例
 
+#### Step 1
 
-### 2 算法实现
+<img src="README.assets/image-20221013105943132.png" alt="image-20221013105943132" style="zoom:50%;" />
 
+#### Step 2
 
+<img src="README.assets/image-20221013110154768.png" alt="image-20221013110154768" style="zoom:50%;" />
 
+<img src="README.assets/image-20221013110248609.png" alt="image-20221013110248609" style="zoom:50%;" />
+
+#### Step 3
+
+<img src="README.assets/image-20221013110527849.png" alt="image-20221013110527849" style="zoom:50%;" />
+
+#### Step 4
+
+<img src="README.assets/image-20221013110617552.png" alt="image-20221013110617552" style="zoom:50%;" />
+
+<img src="README.assets/image-20221013110758113.png" alt="image-20221013110758113" style="zoom:50%;" />
+
+#### Step 5
+
+<img src="README.assets/image-20221013110824538.png" alt="image-20221013110824538" style="zoom:50%;" />
