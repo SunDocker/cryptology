@@ -75,9 +75,9 @@
 >
 > <img src="README.assets/image-20221012221312424.png" alt="image-20221012221312424" style="zoom:67%;" />
 
-## 3 线性反馈移位寄存器
+##  线性反馈移位寄存器
 
-#### 3.1 LFSR概述
+#### 1 LFSR概述
 
 <img src="README.assets/image-20221012221550856.png" alt="image-20221012221550856" style="zoom:67%;" />
 
@@ -85,14 +85,14 @@
 
 <img src="README.assets/image-20221012221717215.png" alt="image-20221012221717215" style="zoom:67%;" />
 
-#### 3.2 LFSR的表示
+#### 2 LFSR的表示
 
 <img src="README.assets/image-20221012221932838.png" alt="image-20221012221932838" style="zoom:67%;" />
 
 - 规定好级数大小
 - 确定移位方向和输出的级数
 
-#### 3.3 LFSR举例
+#### 3 LFSR举例
 
 举例：
 
@@ -108,13 +108,13 @@
 
 ==状态的周期与序列的周期是相同的==
 
-#### 3.4 LFSR的周期
+#### 4 LFSR的周期
 
 LFSR的状态周期小于等于$2^L-1$
 
 > 减1是排队的全0态
 
-#### 3.5 m序列
+#### 5 m序列
 
 <img src="README.assets/image-20221012223054958.png" alt="image-20221012223054958" style="zoom:67%;" />
 
