@@ -45,6 +45,9 @@
 
 <img src="README.assets/image-20221017085643149.png" alt="image-20221017085643149" style="zoom:40%;" />
 
+- ==公钥加密、私钥解密==
+- ==私钥数字签名、公钥验证==
+
 要满足的要求：
 
 <img src="README.assets/image-20221017090004320.png" alt="image-20221017090004320" style="zoom:67%;" />
