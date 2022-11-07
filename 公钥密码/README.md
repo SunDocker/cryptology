@@ -121,13 +121,131 @@
 
 <img src="README.assets/image-20221017103120873.png" alt="image-20221017103120873" style="zoom:50%;" />
 
+## Rabin算法
 
+>   破解RSA算法的关键：
+>
+>   <img src="README.assets/image-20221107185622952.png" alt="image-20221107185622952" style="zoom:67%;" />
 
+### 1 概述
 
+<img src="README.assets/image-20221107185649616.png" alt="image-20221107185649616" style="zoom:50%;" />
 
+可证明安全性
 
+改进：
 
+<img src="README.assets/image-20221107185709216.png" alt="image-20221107185709216" style="zoom:67%;" />
 
+<img src="README.assets/image-20221107185735867.png" alt="image-20221107185735867" style="zoom:67%;" />
+
+<img src="README.assets/image-20221107185757804.png" alt="image-20221107185757804" style="zoom:67%;" />
+
+==本质：基于大整数因数分解困难问题构造的又一种陷门单向函数==
+
+### 2 算法描述
+
+#### 2.1 密钥生成
+
+<img src="README.assets/image-20221107185911904.png" alt="image-20221107185911904" style="zoom:67%;" />
+
+#### 2.2 加密变换
+
+<img src="README.assets/image-20221107190049721.png" alt="image-20221107190049721" style="zoom:67%;" />
+
+与RSA类似，只不过**加密指数是2**
+
+>   <img src="README.assets/image-20221107191454678.png" alt="image-20221107191454678" style="zoom:67%;" />
+
+#### 2.3 解密变换
+
+求解同余方程组
+
+<img src="README.assets/image-20221107190520598.png" alt="image-20221107190520598" style="zoom:67%;" />
+
+求解素数模下的平方根在多项式时间内是有解的
+
+>   <img src="README.assets/image-20221107190811487.png" alt="image-20221107190811487" style="zoom:67%;" />
+
+<img src="README.assets/image-20221107190836326.png" alt="image-20221107190836326" style="zoom:67%;" />
+
+<img src="README.assets/image-20221107190907394.png" alt="image-20221107190907394" style="zoom:50%;" />
+
+确定明文：
+
+<img src="README.assets/image-20221107191149617.png" alt="image-20221107191149617" style="zoom:67%;" />
+
+### 3 举例
+
+<img src="README.assets/image-20221107191348444.png" alt="image-20221107191348444" style="zoom:67%;" />
+
+<img src="README.assets/image-20221107191423990.png" alt="image-20221107191423990" style="zoom:67%;" />
+
+## DH密钥交换
+
+### 1 概述、定义
+
+在交互过程（密钥协商）中产生密钥：
+
+<img src="README.assets/image-20221107192627660.png" alt="image-20221107192627660" style="zoom:67%;" />
+
+更对等、更公平
+
+定义：
+
+<img src="README.assets/image-20221107192742792.png" alt="image-20221107192742792" style="zoom:67%;" />
+
+>   <img src="README.assets/image-20221107195526351.png" alt="image-20221107195526351" style="zoom:67%;" />
+
+### 2 思想描述
+
+产生Key需要三样东西，其中secret是攻击者无法拥有的，secret也是不会在公开信道上直接传递的（会混合传递）
+
+<img src="README.assets/image-20221107193045517.png" alt="image-20221107193045517" style="zoom:67%;" />
+
+<img src="README.assets/image-20221107193512144.png" alt="image-20221107193512144" style="zoom:80%;" />
+
+### 3 原理/工作流程
+
+<img src="README.assets/image-20221107193739723.png" alt="image-20221107193739723" style="zoom:67%;" />
+
+-   $Z_q$是1到q-1中的整数
+
+-   本质是离散对数困难问题（DLP问题）
+
+    >   <img src="README.assets/image-20221107193904871.png" alt="image-20221107193904871" style="zoom:67%;" />
+
+<img src="README.assets/image-20221107194052930.png" alt="image-20221107194052930" style="zoom:67%;" />
+
+>   <img src="README.assets/image-20221107194223166.png" alt="image-20221107194223166" style="zoom:67%;" />
+
+### 4 安全性
+
+被动攻击有DLP作保障，没有问题
+
+主动攻击-伪装攻击：Carol假装是Bob，**给Alice提供自己的y**
+
+<img src="README.assets/image-20221107194846390.png" alt="image-20221107194846390" style="zoom:80%;" />
+
+-   但这种攻击一般只能成功一次，因为Bob会发现问题
+
+-   这就需要**身份认证**了 
+
+    >   只有加密算法是不够的
+
+主动攻击-中间人攻击：一边给自己的g^x^一边给自己的g^y^
+
+<img src="README.assets/image-20221107195116627.png" alt="image-20221107195116627" style="zoom:67%;" />
+
+<img src="README.assets/image-20221107195328130.png" alt="image-20221107195328130" style="zoom:80%;" />
+
+>   在很精密的系统中，可以通过**时间延迟**去发现问题
+
+## ElGamal加密
+
+### 1 概述
+
+<img src="README.assets/image-20221107195939274.png" alt="image-20221107195939274" style="zoom:67%;" />
 
 
 
