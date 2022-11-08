@@ -2,7 +2,7 @@
 
 提交方式：通过HITsz Grade平台提交   提交截止时间：以系统上公布时间为准   
 
-提交格式：pdf文件             文件命名规则：学号_姓名_作业3.pdf
+提交格式：pdf文件             文件命名规则：学号\_姓名_作业3.pdf
 
 注：若包含照片或插图，请旋转至适合阅读的方向
 
@@ -197,12 +197,32 @@
     |  27  |  15  |
     |  28  |  1   |
 
-    对于方程$a$：
+    解方程$a$：
     $$
     17x^2\equiv10(mod~29)\\
-    \Lrarr17x^2\equiv2^{23}(mod~29)\\
-    \Lrarr34x^2\equiv2^{24}(mod~29)\\
-    \Lrarr34x^2\equiv20(mod~29)\\
+    \Lrarr2^{21}x^2\equiv2^{23}(mod~29)\\
+    \Lrarr x^2\equiv4(mod~29)\\
+    \Lrarr x\equiv\pm2(mod~29)\\
+    \Lrarr x\equiv2,27(mod~29)\\
+    $$
+
+    解方程$b$：
+    $$
+    x^2-4x-16\equiv0(mod~29)\\
+    \Lrarr x^2-4x+4\equiv20(mod~29)\\
+    \Lrarr (x-2)^2\equiv2^{24}(mod~29)\\
+    \Lrarr x-2\equiv\pm2^{12}(mod~29)\\
+    \Lrarr x-2\equiv\pm7(mod~29)\\
+    \Lrarr x\equiv9,-5(mod~29)\\
+    \Lrarr x\equiv9,24(mod~29)\\
+    $$
+    解方程$c$：
+    $$
+    x^7\equiv17(mod~29)\\
+    \Lrarr2^{28}x^7\equiv2^{21}(mod~29)\\
+    \Lrarr2^{7}x^7\equiv1(mod~29)\\
+    \Lrarr2x\equiv2^{28}(mod~29)\\
+    \Lrarr x\equiv2^{27}(mod~29)\\
     $$
     
 
@@ -217,19 +237,19 @@
     1.   密钥生成：
          $$
          n=p\times q=5\times11=55\\
-         \phi(n)=(p-1)\times(q-1)=4\times10=40\\
+         \phi(n)=(p-1)\times(q-1)=4\times10=40\\
          $$
          令$gcd(\phi(n),e)=1$，即$gcd(40,e)=1$，依题意选择$e=3$
-
+         
          令$d\equiv e^{-1}(mod~\phi(n))\equiv 3^{-1}(mod~40)$
-
+         
          使用扩展欧几里得算法求解得：$d=27$
-
+         
          所以：
-
+         
          -   公钥为：$PU=\{e,n\}=\{3,55\}$
          -   私钥为：$PU=\{d,n\}=\{27,55\}$
-
+         
     2.   加密：
 
          明文$M=9<55=n$
@@ -244,16 +264,48 @@
 
 9. 在RSA公钥密码体制中，每个用户都有一个公钥e和一个私钥d。假定Bob的私钥已泄密。Bob决定生成新的公钥和私钥，而不生成新的模数，请问这样做安全吗？
 
-    
+    解：由密钥生成过程可知：
+
+    $ed\equiv1~mod~\phi(n)$
+
+    所以有$\phi(n)=\frac{ed-1}k,k=1,2,...$
+
+    且$gcd(\phi(n),e)=1$
+
+    据此可以求出有限个可能的$\phi(n)$和可能的$e$，从而得到所有可能的密钥$d$
+
+    所以这样做不安全
 
     
 
-    
+10. 本题说明选择密文攻击的简单应用。Bob截获了一份发给Alice的密文C，该密文是用Alice的公钥e加密的。Bob想获得原始消息$M=C^d~mod~n$。Bob选择一个小于n的随机数r，并计算$Z=r^e~mod~n$，$X=ZC~mod~n$，$t=r^{-1}~mod~n$。接着，Bob让Alice用她的私钥对X进行认证（见图9.3），从而解密X。Alice返回$Y=X^d~mod~n$。说明Bob如何利用获得的信息求M。
+
+    解：
+    $$
+    \begin{align}
+    Y&=X^d~mod~n\\
+    &=(ZC)^d~mod~n\\
+    &=(ZC)^d~mod~n\\
+    &=(Z^d~mod~n)\times (C^d~mod~n)\\
+    &=(r^{ed}~mod~n)\times (C^d~mod~n)\\
+    &=((r^e~mod~n)^d~mod~n)\times (C^d~mod~n)\\
+    &=rM\\
+    \end{align}
+    $$
+    所以$t(Y~mod~n)=t(rM~mod~n)=t(r~mod~n)M=M$
+
+    即$M=tY~mod~n$
 
     
 
-    
+     
 
-    
+     
+
+     
+
+     
+
+     
 
  

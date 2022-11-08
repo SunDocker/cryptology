@@ -141,7 +141,7 @@
 
 <img src="README.assets/image-20221107185757804.png" alt="image-20221107185757804" style="zoom:67%;" />
 
-==本质：基于大整数因数分解困难问题构造的又一种陷门单向函数==
+==本质：基于**大整数因数分解**（IF）困难问题构造的又一种陷门单向函数==
 
 ### 2 算法描述
 
@@ -211,7 +211,7 @@
 
 -   $Z_q$是1到q-1中的整数
 
--   本质是离散对数困难问题（DLP问题）
+-   **==本质是离散对数困难问题（DLP问题）==**
 
     >   <img src="README.assets/image-20221107193904871.png" alt="image-20221107193904871" style="zoom:67%;" />
 
@@ -246,6 +246,115 @@
 ### 1 概述
 
 <img src="README.assets/image-20221107195939274.png" alt="image-20221107195939274" style="zoom:67%;" />
+
+公钥每次加密时都随机变
+
+基于DLP困难问题
+
+### 2 算法步骤
+
+<img src="README.assets/image-20221107221635099.png" alt="image-20221107221635099" style="zoom:80%;" />
+
+- 体会加密时的随机性
+
+  > 两次计算密文，会降低效率
+
+- 解密的重点是求K
+
+## 椭圆曲线密码学
+
+基于ECDLP困难问题
+
+### 1 概述
+
+<img src="README.assets/image-20221108110102939.png" alt="image-20221108110102939" style="zoom:67%;" />
+
+需要同样安全但更高效的算法
+
+### 2 数学基础
+
+群和交换群：
+
+<img src="README.assets/image-20221108110253168.png" alt="image-20221108110253168" style="zoom:67%;" />
+
+> 在这个情景下，群中的元素是点
+>
+> <img src="README.assets/image-20221108110355207.png" alt="image-20221108110355207" style="zoom:67%;" />
+
+群的运算：
+
+<img src="README.assets/image-20221108110622001.png" alt="image-20221108110622001" style="zoom:67%;" />
+
+#### 2.1 实数域上的椭圆曲线
+
+ECC中的椭圆曲线：
+
+<img src="README.assets/image-20221108111501434.png" alt="image-20221108111501434" style="zoom:67%;" />
+
+- 满足等式的点
+- 又加上了一个无穷远点，想让它做单位元
+
+<u>ECC群的正式定义</u>：
+
+<img src="README.assets/image-20221108111647943.png" alt="image-20221108111647943" style="zoom:67%;" />
+
+- 群性质、加法的描述：
+
+  <img src="README.assets/image-20221108111818153.png" alt="image-20221108111818153" style="zoom:67%;" />
+
+  <img src="README.assets/image-20221108112254598.png" alt="image-20221108112254598" style="zoom:67%;" />
+
+  > 注意这个加法的特殊性
+
+- 加法计算公式：
+
+  <img src="README.assets/image-20221108112327354.png" alt="image-20221108112327354" style="zoom:67%;" />
+
+#### 2.2 有限域Zp上的椭圆曲线
+
+<img src="README.assets/image-20221108112514709.png" alt="image-20221108112514709" style="zoom:67%;" />
+
+正式定义：
+
+<img src="README.assets/image-20221108112658499.png" alt="image-20221108112658499" style="zoom:67%;" />
+
+- 重点：$E_p(a,b)$
+
+群的运算（加法）：
+
+<img src="README.assets/image-20221108112833945.png" alt="image-20221108112833945" style="zoom:67%;" />
+
+- 这里的除法其实就是乘法逆，也就是和谁乘了之后模p为1
+
+> 举例：
+>
+> <img src="README.assets/image-20221108112957620.png" alt="image-20221108112957620" style="zoom:67%;" />
+
+椭圆曲线上的DLP问题：（**ECDLP**）
+
+<img src="README.assets/image-20221108144828878.png" alt="image-20221108144828878" style="zoom:80%;" />
+
+### 3 椭圆曲线密码体制下的DH密钥交换
+
+> 与DLP问题下的DH密钥交换很像
+
+<img src="README.assets/image-20221108145132997.png" alt="image-20221108145132997" style="zoom:67%;" />
+
+<img src="README.assets/image-20221108145228499.png" alt="image-20221108145228499" style="zoom:80%;" />
+
+> 当然，这个公共的G也要在信道上传输
+
+### 4 椭圆曲线密码体制下的EIGamal加密
+
+> ECC加密
+
+<img src="README.assets/image-20221108145611947.png" alt="image-20221108145611947" style="zoom:80%;" />
+
+> 总结：
+>
+> <img src="README.assets/image-20221108145831556.png" alt="image-20221108145831556" style="zoom:80%;" />
+
+
 
 
 
