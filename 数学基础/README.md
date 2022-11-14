@@ -460,3 +460,70 @@
 
 
 
+
+
+# 数学基础(hitsz)
+
+# 9.14雨课堂
+
+## 整除性和带余除法
+
+<img src="README.assets/image-20221114151021880.png" alt="image-20221114151021880" style="zoom:67%;" />
+
+-   整除、因子的概念
+-   商和余数的表示法
+
+## 素数和模运算
+
+<img src="README.assets/image-20221114151138614.png" alt="image-20221114151138614" style="zoom:67%;" />
+
+-   素数的**整数分解唯一性**
+
+---
+
+<img src="README.assets/image-20221114151209546.png" alt="image-20221114151209546" style="zoom:67%;" />
+
+-   同余的概念与表示方法
+-   a和0模n同余则n整除a
+
+---
+
+<img src="README.assets/image-20221114151430076.png" alt="image-20221114151430076" style="zoom:67%;" />
+
+-   同余的自反性
+-   同余的传递性
+
+---
+
+<img src="README.assets/image-20221114151711722.png" alt="image-20221114151711722" style="zoom:67%;" />
+
+-   模运算的分配律
+
+>   举例：
+>
+>   <img src="README.assets/image-20221114152040695.png" alt="image-20221114152040695" style="zoom:67%;" />
+
+---
+
+# 9.26
+
+## 欧几里得算法和扩展欧几里得算法
+
+
+
+
+
+## 费马小定理和欧拉定理
+
+
+
+## 素性检测
+
+
+
+## 中国剩余定理
+
+
+
+## 离散对数
+
