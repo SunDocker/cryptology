@@ -1,4 +1,4 @@
-# Hash函数
+# 哈希函数与消息认证
 
 ## 哈希函数的应用
 
@@ -44,6 +44,16 @@
 -   <u>消息认证的应用：</u>
     -   阴影部分是hash函数值，在验证完整性时，应当一致
     -   不能碰撞：就是不能有一个别的data，hash(data)也是这个值，不然就验证不好了
+
+-   消息认证包括两部分：
+
+    -   **消息完整性**认证
+    -   **发送方身份**认证
+
+    >   但消息认证和消息加密不同
+    >
+    >   -   消息认证就是证明这个消息是那个人发的，而且这个消息没问题没错误，**<u>由Hash函数和还没讲的DS实现</u>**
+    >   -   消息加密是消息不想让别人看到，**<u>由Enc、Dec(加密、解密算法)实现</u>**
 
 ---
 
@@ -140,4 +150,146 @@
 
 ## 安全Hash函数的一般结构
 
+<img src="README.assets/image-20221114190707144.png" alt="image-20221114190707144" style="zoom:50%;" />
+
+<img src="README.assets/image-20221114190739601.png" alt="image-20221114190739601" style="zoom:50%;" />
+
+-   左边大，右边小，压缩函数，b>n
+-   压缩函数的抗碰撞能力可以传递给Hash函数
+
 ## 安全哈希算法(SHA)
+
+<img src="README.assets/image-20221114190838867.png" alt="image-20221114190838867" style="zoom:50%;" />
+
+---
+
+<img src="README.assets/image-20221114191028998.png" alt="image-20221114191028998" style="zoom:50%;" />
+
+<img src="README.assets/image-20221114191047551.png" alt="image-20221114191047551" style="zoom:50%;" />
+
+<img src="README.assets/image-20221114191149488.png" alt="image-20221114191149488" style="zoom:50%;" />
+
+-   核心是**F模块**，80轮运算
+-   第二张图左边一个大的就是F模块
+-   第三张图是一个Round
+-   具体运算过程按步就搬就可以
+
+---
+
+<img src="README.assets/image-20221114191325751.png" alt="image-20221114191325751" style="zoom:50%;" />
+
+-   生成的**hash值的每一位**，都与**输入的所有位**有关
+-   同一个原消息都不太可能生成两个相同的hash值
+
+---
+
+<img src="README.assets/image-20221114191412584.png" alt="image-20221114191412584" style="zoom:50%;" />
+
+# 消息认证码
+
+## 消息认证及消息认证码
+
+### 消息认证概述
+
+<img src="README.assets/image-20221114192556752.png" alt="image-20221114192556752" style="zoom:50%;" />
+
+-   消息认证包括两部分：
+
+    -   **消息完整性**认证
+    -   **发送方身份**认证
+
+    >   但消息认证和消息加密不同
+    >
+    >   -   消息认证就是证明这个消息是那个人发的，而且这个消息没问题没错误，**<u>由Hash函数和还没讲的数字签名实现</u>**
+    >   -   消息加密是消息不想让别人看到，**<u>由Enc、Dec(加密、解密算法)实现</u>**
+
+-   密码学原语组合的问题：
+
+    -   比如这里实现完整性的算法和实现认证的算法组合起来，不一定能实现很好的消息认证
+    -   所以之后还要讲，这些算法怎么有效结合起来
+
+-   下层就像一块块砖头，上层就像房子图纸
+
+---
+
+<img src="README.assets/image-20221114192652439.png" alt="image-20221114192652439" style="zoom:50%;" />
+
+### 消息认证码概述
+
+<img src="README.assets/image-20221114192958470.png" alt="image-20221114192958470" style="zoom:50%;" />
+
+-   mac与hash函数的相比：
+
+    -   相同点
+
+        -   公开的
+        -   产生固定长度
+
+    -   不同点
+
+        -   hash没有密钥，**mac有密钥**
+
+            >   所以hash函数只能实现消息完整性
+
+    -   mac与加密函数相比，可能只能加密但无法解密
+
+---
+
+<img src="README.assets/image-20221114193400813.png" alt="image-20221114193400813" style="zoom:47%;" />
+
+<img src="README.assets/image-20221114193600615.png" alt="image-20221114193600615" style="zoom:50%;" />
+
+-   注意下这里的符号，C是函数，MAC是消息认证码
+-   如果接收方生成的消息认证码与发送方附的不一样，要么消息不完整，要么来源不对
+    -   所以MAC一个就能完全实现**消息认证**
+
+---
+
+<img src="README.assets/image-20221114193730255.png" alt="image-20221114193730255" style="zoom:50%;" />
+
+<img src="README.assets/image-20221114194019656.png" alt="image-20221114194019656" style="zoom:50%;" />
+
+-   如果还想要加密，就要组合加密算法，但要注意顺序
+-   注意方式1中有两个密钥，这两个密钥最好不一样
+-   第二张图右上角写的是加密方式2的公式
+
+## 消息认证码的要求
+
+<img src="README.assets/image-20221114194302329.png" alt="image-20221114194302329" style="zoom:50%;" />
+
+-   攻击代价高
+-   密钥长于输出
+
+---
+
+<img src="README.assets/image-20221114194632786.png" alt="image-20221114194632786" style="zoom:50%;" />
+
+<img src="README.assets/image-20221114194658851.png" alt="image-20221114194658851" style="zoom:50%;" /><img src="README.assets/image-20221114194714649.png" alt="image-20221114194714649" style="zoom:50%;" />
+
+## 基于哈希函数的MAC
+
+>   MAC本身可以通过hash函数或enc实现
+
+<img src="README.assets/image-20221114195158185.png" alt="image-20221114195158185" style="zoom:50%;" />
+
+-   有密钥、有消息，hash函数拿来就可以用，可以灵活替换hash算法
+-   不造成原有hash函数的性能下降
+
+---
+
+<img src="README.assets/image-20221114195506402.png" alt="image-20221114195506402" style="zoom:50%;" />
+
+<img src="README.assets/image-20221114195915485.png" alt="image-20221114195915485" style="zoom:50%;" />
+
+-   它们只是把这个key用起来了，但是很不安全
+
+-   这样的问题在于，敌手基于原消息后面**拼接出来的新消息的MAC值**可以直接由敌手自己算出来（因为Hash函数都是公开的），这样敌手可以随意拼接消息
+
+    >   可以参考merkel设计的那种一般结构
+    >
+    >   <img src="README.assets/image-20221114190707144.png" alt="image-20221114190707144" style="zoom:40%;" />
+    >
+    >   就只有初始化向量那里有个k
+
+## 基于分组密码的MAC
+
