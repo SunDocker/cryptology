@@ -464,7 +464,193 @@
 
 # 数学基础(hitsz)
 
-# 9.14雨课堂
+## 群环域
+
+### 1 群的定义与性质
+
+<img src="README.assets/image-20221123194403585.png" alt="image-20221123194403585" style="zoom:67%;" />
+
+### 2 群的其他常用概念
+
+<img src="README.assets/image-20221123194444135.png" alt="image-20221123194444135" style="zoom:67%;" />
+
+>   常用群举例：
+>
+>   <img src="README.assets/image-20221123194959245.png" alt="image-20221123194959245" style="zoom:50%;" />
+>
+>   模乘要求互质，是为了保证有逆元（乘法逆）
+>
+>   所以更喜欢质数，Z~p~
+
+### 3 循环群
+
+<img src="README.assets/image-20221123195138998.png" alt="image-20221123195138998" style="zoom:67%;" />
+
+希望能通过幂运算遍历群中所有元素
+
+### 4 环与整环
+
+<img src="README.assets/image-20221123195436805.png" alt="image-20221123195436805" style="zoom:60%;" />
+
+### 5 域
+
+<img src="README.assets/image-20221123195645471.png" alt="image-20221123195645471" style="zoom:67%;" />
+
+<img src="README.assets/image-20221123195704741.png" alt="image-20221123195704741" style="zoom:67%;" />
+
+## 有限域GF(p)
+
+### 1 有限域的概念
+
+<img src="README.assets/image-20221123203124052.png" alt="image-20221123203124052" style="zoom:67%;" />
+
+<img src="README.assets/image-20221123203258062.png" alt="image-20221123203258062" style="zoom:67%;" />
+
+-   就是Z~p~，加和乘的模p运算（质数）
+-   这个Z~p~确实不带*，但如果要求有乘法逆元，就要质数p了，那其实就是带\*的一种
+    -   要求有乘法逆元的时候，只有质数p的情况才能从1开始连续到p-1，其他的都不连续，太不方便
+-   所以还是按Z~p~^*^理解吧
+
+---
+
+运算问题：
+
+<img src="README.assets/image-20221123203503215.png" alt="image-20221123203503215" style="zoom:67%;" />
+
+<img src="README.assets/image-20221123203514445.png" alt="image-20221123203514445" style="zoom:67%;" />
+
+## 多项式运算
+
+### 1 多项式运算
+
+<img src="README.assets/image-20221123204025884.png" alt="image-20221123204025884" style="zoom:67%;" />
+
+-   普通运算，没啥可说的
+-   多项式之间，系数模p运算
+-   模一个多项式？除以一个多项式然后求余多项式
+
+要规定加法运算和乘法运算
+
+-   加法满足A1-A5
+-   乘法满足M1-M7
+
+### 2 普通多项式及其运算
+
+<img src="README.assets/image-20221123204130886.png" alt="image-20221123204130886" style="zoom:50%;" />
+
+---
+
+运算：
+
+<img src="README.assets/image-20221123204154160.png" alt="image-20221123204154160" style="zoom:67%;" />
+
+<img src="README.assets/image-20221123204519243.png" alt="image-20221123204519243" style="zoom:67%;" />
+
+-   这个乘法，多项式次数会增加，乘多了这个次数就无限了
+-   想让它有限，就让它模
+
+### 3 系数在Z~p~中
+
+<img src="README.assets/image-20221123204943545.png" alt="image-20221123204943545" style="zoom:67%;" />
+
+---
+
+除法/乘法逆：
+
+<img src="README.assets/image-20221123205043626.png" alt="image-20221123205043626" style="zoom:67%;" />
+
+>   举例：列大式子，记得模p
+>
+>   <img src="README.assets/image-20221123205157675.png" alt="image-20221123205157675" style="zoom:50%;" />
+>
+>   -   这里也是会模p的
+
+---
+
+GF(2)的运算
+
+<img src="README.assets/image-20221123205319828.png" alt="image-20221123205319828" style="zoom:50%;" />
+
+<img src="README.assets/image-20221123205418546.png" alt="image-20221123205418546" style="zoom:67%;" />
+
+>   举例：GF(7)上的运算
+>
+>   <img src="README.assets/image-20221123205803832.png" alt="image-20221123205803832" style="zoom:67%;" />
+>
+>   <img src="README.assets/image-20221123205835011.png" alt="image-20221123205835011" style="zoom:67%;" />
+>
+>   -   除法（算上几的时候会用到）就是乘乘法逆（乘谁模p等于0）
+>   -   减法就是加加法逆（加p直到大于0）
+
+### 4 可约与不可约
+
+<img src="README.assets/image-20221123210043463.png" alt="image-20221123210043463" style="zoom:67%;" />
+
+>   <img src="README.assets/image-20221123210109487.png" alt="image-20221123210109487" style="zoom:67%;" />
+
+## 有限域GF(2^n^)
+
+>   元素是多项式，运算方法上面讲了
+
+### 1 动机
+
+<img src="README.assets/image-20221123210536477.png" alt="image-20221123210536477" style="zoom:60%;" />
+
+<img src="README.assets/image-20221123210617220.png" alt="image-20221123210617220" style="zoom:67%;" />
+
+### 2 多项式模运算
+
+<img src="README.assets/image-20221123210712134.png" alt="image-20221123210712134" style="zoom:67%;" />
+
+>   举例：
+>
+>   <img src="README.assets/image-20221123210757014.png" alt="image-20221123210757014" style="zoom:50%;" />
+
+<img src="README.assets/image-20221123211036243.png" alt="image-20221123211036243" style="zoom:67%;" />
+
+-   普通运算基础上，系数在Z~p~*中，系数控制了，有限了
+-   乘法之后再给模一个素多项式m(x)，次数也有限了
+    -   这个模其实也是要先除法一下，然后取余，再规范系数
+
+>   <img src="README.assets/image-20221123211045610.png" alt="image-20221123211045610" style="zoom:67%;" />
+>
+>   <img src="README.assets/image-20221123211227393.png" alt="image-20221123211227393" style="zoom:67%;" />
+
+---
+
+元素对应关系：
+
+<img src="README.assets/image-20221123211806984.png" alt="image-20221123211806984" style="zoom:67%;" />
+
+-   注意这里其实就是p=2，系数模2的
+
+-   Z~8~不能构成有限域，但映射成多项式，再按规则进行运算，就可以是有限域
+
+    >   这里体现出了运算不同带来的影响；这个可以证明，这里就不证了
+
+    -   所以说，$GF(2^3)$和$Z_8$是有很大区别的
+
+### 3 AES中的GF(2^8^)
+
+<img src="README.assets/image-20221123213013081.png" alt="image-20221123213013081" style="zoom:67%;" />
+
+-   这里给b~7~分类，其实就是因为，如果得到的结果最高次小于m(x)最高次，就没必要模了
+
+-   然后b~7~不为0的时候其实可以分开算，两部分都很好算，就得到一个计算机可以快速运算的公式
+
+-   剩下那个加就是异或
+
+    >   乘是与
+
+-   这里的基础运算xf(x)非常实用
+
+---
+
+<img src="README.assets/image-20221123213113200.png" alt="image-20221123213113200" style="zoom:67%;" />
+
+-   就通过分配律，都能转换成xf(x)的运算
+
+>   <img src="README.assets/image-20221123213314770.png" alt="image-20221123213314770" style="zoom:67%;" />
 
 ## 整除性和带余除法
 
@@ -474,6 +660,8 @@
 -   商和余数的表示法
 
 ## 素数和模运算
+
+### 1 素数的性质
 
 <img src="README.assets/image-20221114151138614.png" alt="image-20221114151138614" style="zoom:67%;" />
 
@@ -495,6 +683,8 @@
 
 ---
 
+### 2 模运算
+
 <img src="README.assets/image-20221114151711722.png" alt="image-20221114151711722" style="zoom:67%;" />
 
 -   模运算的分配律
@@ -505,25 +695,85 @@
 
 ---
 
-# 9.26
+<img src="README.assets/image-20221123221654851.png" alt="image-20221123221654851" style="zoom:67%;" />
 
 ## 欧几里得算法和扩展欧几里得算法
 
+### 1 欧几里得算法
 
+>   辗转相除法
+>
+>   求**最大公约数**
 
+<img src="README.assets/image-20221123225208834.png" alt="image-20221123225208834" style="zoom:67%;" />
 
+### 2 扩展的欧几里得算法
+
+<img src="README.assets/image-20221123225731997.png" alt="image-20221123225731997" style="zoom:67%;" />
+
+就是用a和b(n)表示r，然后a旁边那个就是乘法逆了（模n的）
 
 ## 费马小定理和欧拉定理
 
+### 1 费马小定理
 
+<img src="README.assets/image-20221125095831183.png" alt="image-20221125095831183" style="zoom:67%;" />
+
+<img src="README.assets/image-20221125095851728.png" alt="image-20221125095851728" style="zoom:67%;" />
+
+### 2 欧拉定理
+
+#### 2.1 欧拉函数
+
+<img src="README.assets/image-20221125101553005.png" alt="image-20221125101553005" style="zoom:67%;" />
+
+#### 2.2 欧拉定理
+
+<img src="README.assets/image-20221125101938010.png" alt="image-20221125101938010" style="zoom:67%;" />
 
 ## 素性检测
 
+### 1 素数的必要性
 
+<img src="README.assets/image-20221125102115174.png" alt="image-20221125102115174" style="zoom:67%;" />
+
+### 2 Miller-Rabin
+
+<img src="README.assets/image-20221125102532826.png" alt="image-20221125102532826" style="zoom:67%;" />
+
+理论上，素性检测得出的数不一定是素数，只是很可能为素数
 
 ## 中国剩余定理
 
+### 1 定理内容
 
+<img src="README.assets/image-20221125103053532.png" alt="image-20221125103053532" style="zoom:67%;" />
+
+### 2 大数表示
+
+<img src="README.assets/image-20221125103316708.png" alt="image-20221125103316708" style="zoom:67%;" />
+
+-   前提是要把m确定下来，每个元素对应每个m
+
+>   <img src="README.assets/image-20221125103607017.png" alt="image-20221125103607017" style="zoom:67%;" />
+>
+>   <img src="README.assets/image-20221125103629118.png" alt="image-20221125103629118" style="zoom:67%;" />
 
 ## 离散对数
+
+### 1 模n整数幂/欧拉定理的启发
+
+<img src="README.assets/image-20221125110638396.png" alt="image-20221125110638396" style="zoom:67%;" />
+
+>   <img src="README.assets/image-20221125110808741.png" alt="image-20221125110808741" style="zoom:67%;" />
+
+<img src="README.assets/image-20221125111003635.png" alt="image-20221125111003635" style="zoom:50%;" />
+
+### 2 离散对数问题
+
+<img src="README.assets/image-20221125111221849.png" alt="image-20221125111221849" style="zoom:67%;" />
+
+<img src="README.assets/image-20221125111237539.png" alt="image-20221125111237539" style="zoom:67%;" />
+
+
 

@@ -266,7 +266,7 @@
 
 <img src="README.assets/image-20221114194658851.png" alt="image-20221114194658851" style="zoom:50%;" /><img src="README.assets/image-20221114194714649.png" alt="image-20221114194714649" style="zoom:50%;" />
 
-## 基于哈希函数的MAC
+## 基于哈希函数的MAC/HMAC
 
 >   MAC本身可以通过hash函数或enc实现
 
@@ -290,6 +290,55 @@
     >   <img src="README.assets/image-20221114190707144.png" alt="image-20221114190707144" style="zoom:40%;" />
     >
     >   就只有初始化向量那里有个k
+    >
+    >   <img src="README.assets/image-20221114202703198.png" alt="image-20221114202703198" style="zoom:50%;" />
 
-## 基于分组密码的MAC
+---
+
+<img src="README.assets/image-20221114202813658.png" alt="image-20221114202813658" style="zoom:50%;" />
+
+-   这个攻击的前提是能实现**碰撞攻击**
+
+---
+
+<img src="README.assets/image-20221114203238957.png" alt="image-20221114203238957" style="zoom:50%;" />
+
+<img src="README.assets/image-20221114203545597.png" alt="image-20221114203545597" style="zoom:50%;" />
+
+-   重点：看左边的图，列出右边的式子
+
+    -   Y一般表示明文分组
+
+-   提升性能的思路
+
+    <img src="README.assets/image-20221114203432055.png" alt="image-20221114203432055" style="zoom:50%;" />
+
+    -   从根本改造
+    -   先得前算好“离线”（固定的）部分，再等“在线”部分出来再执行算法
+
+## 基于分组密码的MAC/CMAC
+
+<img src="README.assets/image-20221114203653373.png" alt="image-20221114203653373" style="zoom:50%;" />
+
+<img src="README.assets/image-20221114203924512.png" alt="image-20221114203924512" style="zoom:50%;" />
+
+<img src="README.assets/image-20221114204007115.png" alt="image-20221114204007115" style="zoom:50%;" />
+
+-   三个密钥
+    -   K：分组加密
+    -   K~1~：消息长度是分组长度整数倍
+    -   K~2~：消息长度不是分组长度整数倍
+        -   同时注意那个填充
+
+---
+
+<img src="README.assets/image-20221114215712290.png" alt="image-20221114215712290" style="zoom:47%;" />
+
+-   需要共享密钥，这个很好理解
+
+-   关于不可抵赖性：发送方不可以对已经发送的消息进行抵赖
+
+    >   但确实可以实现消息完整性和来源真实性
+
+
 
